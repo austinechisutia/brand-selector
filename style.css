@@ -1,0 +1,22 @@
+.clothes-container{
+    display: flex;
+    gap: 20px;
+    
+}
+.different-styles img,
+.brand-selector img{
+    width: 50px;
+    
+}
+.different-styles{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.main-profile img{
+    width: 450px;
+}
+.brand-selector{
+    display: flex;
+    gap: 10px;
+}

@@ -1,22 +1,53 @@
-.clothes-container{
+.clothes-container {
     display: flex;
     gap: 20px;
-    
 }
+
 .different-styles img,
-.brand-selector img{
+.brand-selector img {
     width: 50px;
-    
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    cursor: pointer;
 }
-.different-styles{
+
+.different-styles img:hover,
+.brand-selector img:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+.different-styles {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-.main-profile img{
+
+.main-profile img {
     width: 450px;
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
 }
-.brand-selector{
+
+.main-profile img.fade-in {
+    opacity: 0;
+}
+
+.brand-selector {
     display: flex;
     gap: 10px;
+}
+
+/* Fade-in effect for main image change */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.main-profile img {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Pop-out effect on click */
+.main-profile img.clicked {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
 }

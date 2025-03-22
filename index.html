@@ -8,33 +8,31 @@
 </head>
 <body>
     <div class="clothes-container">
-        <div class="different-styles js-styles-panel">
-            <img src="images/green/1.jpeg" alt="">
-            <img src="images/green/2.jpeg" alt="">
-            <img src="images/green/3.jpeg" alt="">
-            <img src="images/green/4.jpeg" alt="">
-            <img src="images/green/5.jpeg" alt="">
-            <img src="images/green/6.jpeg" alt="">
-            <img src="images/green/7.jpeg" alt="">
-        </div>
+        <!-- Left: Different styles of the selected clothing type -->
+        <div class="different-styles js-styles-panel"></div>
+
+        <!-- Center: Main Image Display -->
         <div class="main-profile">
-            <img class="main-image" src="images/green/1.jpeg" alt="">
+            <img id="mainImage" class="main-image" src="images/green/1.jpeg" alt="Selected Clothing">
         </div>
+
+        <!-- Right: Clothing Types -->
         <div class="brand-selector">
-            <div class="brand1">
-                <img src="images/green/1.jpeg" alt="">
+            <div class="brand" onclick="changeClothing('green')" data-style="green">
+                <img src="images/green/1.jpeg" alt="Green Clothes">
             </div>
-            <div class="brand2">
-                <img src="images/black/black1.png" alt="">
+            <div class="brand" onclick="changeClothing('black')" data-style="black">
+                <img src="images/black/black1.png" alt="Black Clothes">
             </div>
-            <div class="brand3">
-                <img src="images/grey/grey1.jpeg" alt="">
+            <div class="brand" onclick="changeClothing('grey')" data-style="grey">
+                <img src="images/grey/grey1.jpeg" alt="Grey Clothes">
             </div>
-            <div class="brand3">
-                <img src="images/white/qhite5.jpeg" alt="">
+            <div class="brand" onclick="changeClothing('white')" data-style="white">
+                <img src="images/white/qhite5.jpeg" alt="White Clothes">
             </div>
         </div>
     </div>
+
     <script src="main.js"></script>
 </body>
 </html>

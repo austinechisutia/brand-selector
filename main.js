@@ -1,23 +1,54 @@
 const clothingStyle = {
-    black: ["black1.png", "black2.png", "black3.png", "black4.png", "black5.png", "black6.png", "black7.png", "black8.png", "black9.png", "black10.png"],
-    green: ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg", "7.png"],
-    grey:   ["grey.png", "grey1.jpeg", "grey2.jpeg", "grey3.jpeg", "grey4.jpeg", "grey5.jpeg", "grey6.jpeg", "grey7.jpeg"],
-    white: ["white1.jpeg", "white2.jpeg", "white3.jpeg", "white4.png", "qhite5.jpeg", "white6.jpeg", "white8.jpeg", "white8.jpeg"],
+    green: ["images/green/1.jpeg", "images/green/2.jpeg", "images/green/3.jpeg", "images/green/4.jpeg", "images/green/5.jpeg", "images/green/6.jpeg", "images/green/7.png"],
+    black: ["images/black/black1.png", "images/black/black2.png", "images/black/black3.png", "images/black/black4-logo.jpeg"],
+    grey:  ["images/grey/grey1.jpeg", "images/grey/grey2.jpeg", "images/grey/grey3.png", "images/grey/grey4.jpeg"],
+    white: ["images/white/white.jpeg", "images/white/white2.jpeg", "images/white/white-3.jpeg", "images/white/white4.png", "images/white/qhite5.jpeg"]
+};
+
+function changeClothing(style) {
+    if (!clothingStyle[style]) {
+        console.error("Style not found:", style);
+        return;
+    }
+
+    console.log("Switching to:", style);
+
+    const mainImage = document.getElementById("mainImage");
+    if (!mainImage) {
+        console.error("Main image element not found.");
+        return;
+    }
+
+    // Set main image to the first image of the selected clothing type
+    mainImage.src = clothingStyle[style][0];
+
+    // Save selected clothing type to localStorage
+    localStorage.setItem("selectedClothing", style);
+
+    // Update styles panel
+    const stylesPanel = document.querySelector(".js-styles-panel");
+    if (!stylesPanel) {
+        console.error("Styles panel element not found.");
+        return;
+    }
+
+    stylesPanel.innerHTML = ""; // Clear previous styles
+
+    clothingStyle[style].forEach(imageSrc => {
+        let img = document.createElement("img");
+        img.src = imageSrc;
+        img.alt = "Clothing style";
+        img.classList.add("style-thumbnail");
+        img.onmouseover = () => {
+            mainImage.src = imageSrc;
+            console.log("Hovered on:", imageSrc);
+        };
+        stylesPanel.appendChild(img);
+    });
 }
 
-function changeClothingStyle(style){
-    // Get the type of clothing style
-    document.querySelector(".main-image").src = clothingStyle[type][0];
-
-       // Update styles panel
-       const stylesPanel = document.querySelector(".js-styles-panel");
-       stylesPanel.innerHTML = ""; // Clear previous styles
-
-       clothingStyle[type].forEach(style=>{
-            let img = document.createElement("img");
-            img.src = style;
-            img.onclick = ()=> document.querySelector(".main-image").src = style;
-            stylesPanel.appendChild(img);
-       })
-   
-}
+// Load saved clothing type from localStorage on page load
+document.addEventListener("DOMContentLoaded", () => {
+    const savedStyle = localStorage.getItem("selectedClothing") || "green"; // Default to 'green' if none is saved
+    changeClothing(savedStyle);
+});

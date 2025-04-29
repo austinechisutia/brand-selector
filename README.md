@@ -18,3 +18,21 @@ This is a clean, interactive Nike-themed product website where users can click o
 
 ## 📁 Folder Structure
 
+
+## ✨ How It Works
+
+1. Thumbnails of various Nike shoes are displayed.
+2. When a user clicks on a thumbnail, JavaScript captures the image source.
+3. The main shoe display updates to the selected image instantly.
+
+## 📬 Contact
+
+Built with passion by **Austine**  
+📧 austineakhonya624@gmail.com  
+🌐 [GitHub Profile](https://github.com/yourusername)
+
+---
+
+
+
+
